@@ -14,6 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     submitButton.addEventListener('click', handleSubmit);
 
+    const handleScroll = () => {
+        fillBtn.scrollIntoView({
+            behavior: 'smooth', // Defines the transition animation. Values: 'auto' (default) or 'smooth'
+            block: 'center', // Vertical alignment. Values: 'start', 'center', 'end', 'nearest'
+            inline: 'nearest' // Horizontal alignment. Values: 'start', 'center', 'end', 'nearest'
+        });
+    }
+
     document.addEventListener("keydown", (event) => {
         let buttons = questions[currentQuestion].querySelectorAll('input[type="radio"]');
         if (event.key=="Enter" && currentQuestion == totalQuestions-1) {
@@ -23,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             } else {
                 fillBtn.textContent = "Please select an option before proceeding !!";
+                handleScroll();
                 return;
             }
         }
@@ -71,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else {
             fillBtn.textContent = "Please select an option before proceeding !!";
+            handleScroll();
         }
     }
 
