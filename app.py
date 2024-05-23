@@ -66,7 +66,7 @@ tipi_questions = [
     "Conventional, uncreative."
 ]
 
-@app.route('/')
+@app.route('/',methods=['GET','POST'])
 def form():
     if request.method == 'POST':
         return render_template("result.html", result="Normal")
