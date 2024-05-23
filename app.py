@@ -1,9 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 import joblib
 import numpy as np
 
 app = Flask(__name__)
+
+loaded_model = joblib.load('model.pkl')
+scaler = joblib.load('scaler.save')
 
 questions = [
     "I found myself getting upset by quite trivial things.",
@@ -65,6 +68,8 @@ tipi_questions = [
 
 @app.route('/')
 def form():
+    if request.method == 'POST':
+        return render_template("result.html", result="Normal")
     return render_template('form.html', questions=questions, tipi_questions=tipi_questions)
 
 if __name__ == "__main__":
