@@ -4,7 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - InnerEcho</title>
+
+    <style>
+        body {
+            font-family: Poppins;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #6ab7ff;
+            font-size: 2.5rem;
+        }
+
+        .members {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .members div {
+            text-align: center;
+        }
+
+        .members img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        h3 {
+            color: #4a90e2;
+        }
+
+        .models img{
+            border-radius: 0%;
+        }
+
+        .about{
+            display: flex;
+            justify-content: center;
+        }
+
+        .about p{
+            width: 70%;
+            text-align: center;
+        }
+
+        hr{
+            width: 80%;
+            margin-top: 50px;
+            border: 1px solid rgb(0, 255, 234);
+        }
+
+        .models img{
+            width: 70%; 
+        }
+
+        .models div{
+            text-align: center;
+        }
+
+        h2{
+            color: #4a90e2;
+        }
+
+        h4{
+            color: #4a90e2;
+            margin-top: 50px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 426px){
+            h1{
+                font-size: 2rem;
+            }
+
+            h2{
+                font-size: 90%;
+            }
+
+            h3{
+                font-size: 95%;
+            }
+
+            .models img{
+                width: 90%;
+            }
+
+            .members{
+                flex-direction: column;
+            
+            }
+        }
+        
+        a{
+            text-decoration: none;
+            position: absolute;
+            top: 10px;
+            left: 50px;
+        }
+    </style>
 </head>
 <body>
+    <a href="/"><h2><= Go Back</h2></a>
+    <h1>Team Members</h1>
+    <div class="members">
+        <div>
+            <img src="../static/images/Singla.jpg">
+            <h3>Harshit Singla</h3>
+        </div>
+        <div>
+            <img src="../static/images/preet.jpg">
+            <h3>Harshpreet Singh</h3>
+        </div>
+        <div>
+            <img src="../static/images/kuku.jpg">
+            <h3>Harshit Kukreja</h3>
+        </div>
+    </div>
+    <hr>
+    <h1>About - InnerEcho</h1>
+    
+    <div class="about">
+    <p>A MLP Classifier Artificial Intelligence Model which Accurately (99.7% Accuracy Achieved) Classify The levels at which the person is Currently suffering depression or not on the basis of some questions</p>
+    </div>
+    <hr>
+    <h1>Our Results</h1>
+    <div class="models">
+        <div>
+            <img src="../static/images/Picture1.png">
+            <h2>SVC Classifier</h2>
+        </div>
+        <div>
+            <img src="../static/images/Picture2.png">
+            <h2>MLP Classifier</h2>
+        </div>
+    </div>
+
 </body>
 </html>

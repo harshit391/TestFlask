@@ -113,5 +113,9 @@ def form():
         return render_template("result.html", result=prediction[0])
     return render_template('form.html', questions=questions, tipi_questions=tipi_questions)
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 if __name__ == "__main__":
     app.run(debug=True)

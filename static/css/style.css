@@ -78,10 +78,21 @@ input[type="submit"]:hover, .nav-button:hover {
     justify-content: space-between;
 }
 
-#google_translate_element{
+.head{
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#about{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: #4A90E2;
 }
 
 #google_translate_element select {
