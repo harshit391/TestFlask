@@ -109,7 +109,7 @@ input[type="submit"]:hover, .nav-button:hover {
     }
 
     form {
-        width: 80%;
+        width: 75%;
         padding: 1rem;
     }
 }
@@ -120,6 +120,6 @@ input[type="submit"]:hover, .nav-button:hover {
     }
 
     form{
-        width: 90%;
+        width: 85%;
     }
 }
