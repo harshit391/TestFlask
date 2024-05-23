@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+h1 {
+    color: #4A90E2;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+    display: none;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.question.active {
+    display: block;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.options label {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.options label:hover {
+    background-color: #e0f7fa;
+}
+
+input[type="submit"], .nav-button {
+    background-color: #4A90E2;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover, .nav-button:hover {
+    background-color: #357ABD;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#google_translate_element{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#google_translate_element select {
+    padding: 0.25em;
+    font-size: 1.5em;
+}
+
+#fillIt{
+    color: red;
+    font-weight: 600;
+    font-family: Poppins;
+    font-size: 1.5em;
+}
