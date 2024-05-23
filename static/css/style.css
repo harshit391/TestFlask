@@ -96,7 +96,7 @@ input[type="submit"]:hover, .nav-button:hover {
     font-size: 1.5em;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 425px) {
     #fillIt{
         margin-top: 5rem;
         font-size: 1.2rem;
