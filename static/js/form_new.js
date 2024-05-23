@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextButton = document.getElementById('next-button');
     const submitButton = document.getElementById('submit-button');
     const fillBtn = document.getElementById('fillIt');
-    const myForm = document.getElementById("survey-form")
+    const myForm = document.getElementById("survey-form");
 
     const handleSubmit = () => {
         console.log("Submitted");

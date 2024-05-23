@@ -54,8 +54,17 @@
         <h1>Thank you for Taking the Test</h1>
         <h2>Your Depression Status is: {{ result }}</h2>
     </div>
+    <div class="container2">
+        <h2>Give Again</h2>
+    </div>
     <div class="footer">
         <p>Stay positive and take care of your mental health.</p>
-    </div>
+    </div>    
+
+    <script>
+        document.querySelector(".container2").addEventListener("click", function() {
+            window.location.reload();
+        });
+    </script>
 </body>
 </html>
