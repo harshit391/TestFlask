@@ -5,8 +5,8 @@ import numpy as np
 
 app = Flask(__name__)
 
-# loaded_model = joblib.load('model.pkl')
-# scaler = joblib.load('scaler.save')
+loaded_model = joblib.load('model.pkl')
+scaler = joblib.load('scaler.save')
 
 questions = [
     "I found myself getting upset by quite trivial things.",
