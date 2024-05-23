@@ -11,7 +11,7 @@
     <form id="survey-form" method="POST" action="{{ url_for('form') }}">
         {% for i in range(1, 43) %}
         <div class="question" id="question-{{ i }}">
-            <p>Q{{ i }} {{ questions[i-1] }}</p>
+            <p>Q{{ i }}:- {{ questions[i-1] }}</p>
             <div class="options">
                 <label><input type="radio" name="q{{ i }}" value="1" required> 1 - Did not apply to me at all</label>
                 <label><input type="radio" name="q{{ i }}" value="2"> 2 - Applied to me to some degree, or some of the time</label>

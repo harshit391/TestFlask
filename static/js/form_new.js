@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (key < buttons.length) {
             fillBtn.textContent = "";
             buttons[key].checked = true;
-        } else{
+        } else if (key <= 9){
            fillBtn.textContent = "Please Select within the Range";
         }
     })
