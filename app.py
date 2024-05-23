@@ -61,11 +61,7 @@ tipi_questions = [
 ]
 
 @app.route('/')
-def start():
-    return "Hello World"
-
-@app.route('/home')
-def home():
+def form():
     return render_template('form.html', questions=questions, tipi_questions=tipi_questions)
 
 if __name__ == "__main__":
