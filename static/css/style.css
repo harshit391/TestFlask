@@ -113,3 +113,13 @@ input[type="submit"]:hover, .nav-button:hover {
         padding: 1rem;
     }
 }
+
+@media screen and (max-width: 768px) {
+    #fillIt{
+        margin-top: 4rem;
+    }
+
+    form{
+        width: 90%;
+    }
+}
