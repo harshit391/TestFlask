@@ -69,7 +69,48 @@ tipi_questions = [
 @app.route('/',methods=['GET','POST'])
 def form():
     if request.method == 'POST':
-        return render_template("result.html", result="Normal")
+        print("Request Recieved")
+        answers = [request.form.get(f'q{i}') for i in range(1, 43)]
+        print("Answers:", answers)
+
+        tipi_answers = [request.form.get(f'tipi{i}') for i in range(1, 11)]
+        print("TIPI Answers:", tipi_answers)
+
+        education = request.form.get('education')
+        print("Education:", education)
+
+        urban = request.form.get('urban')
+        print("Urban:", urban)
+
+        gender = request.form.get('gender')
+        print("Gender:", gender)
+
+        age_group = request.form.get('age_group')
+        print("Age Group:", age_group)
+
+        religion = request.form.get('religion')
+        print("Religion:", religion)
+
+        orientation = request.form.get('orientation')
+        print("Orientation:", orientation)
+
+        race = request.form.get('race')
+        print("Race:", race)
+
+        married = request.form.get('married')
+        print("Marital Status:", married)
+        
+        input_data = np.array(
+            answers + tipi_answers + [education, urban, gender, age_group, religion, orientation, race, married],
+            dtype=object)
+        
+        input_data = scaler.transform([input_data])
+
+        prediction = loaded_model.predict(input_data)
+
+        print("Prediction:", prediction[0])
+        
+        return render_template("result.html", result=prediction[0])
     return render_template('form.html', questions=questions, tipi_questions=tipi_questions)
 
 if __name__ == "__main__":
