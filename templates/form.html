@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Survey Form</title>
+    <title>InnerEcho</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <div id="google_translate_element"></div>
     <div id="fillIt"></div>
-    <h1>Survey Form</h1>
+    <h1>InnerEcho - Survey Form</h1>
     <form id="survey-form" method="POST" action="{{ url_for('form') }}">
         {% for i in range(1, 43) %}
         <div class="question" id="question-{{ i }}">
