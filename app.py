@@ -124,10 +124,11 @@ def form():
 def about():
     return render_template("about.html")
 
-@app.route("/predict/<string:id>")
+@app.route("/predict/<string:id>", methods=['GET', 'POST'])
 def check(id):
-    li = [int(x) for x in id.split(",")]
-    return jsonify({"id": predict(li)})
+    if request.method == 'POST' or request.method == 'GET':
+        li = [int(x) for x in id.split(",")]
+        return jsonify({"id": predict(li)})
 
 
 if __name__ == "__main__":
