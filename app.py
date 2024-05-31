@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 
 import joblib
 import numpy as np
 
 app = Flask(__name__)
+CORS(app)
 
 loaded_model = joblib.load('model.pkl')
 scaler = joblib.load('scaler.save')
@@ -66,6 +68,17 @@ tipi_questions = [
     "Conventional, uncreative."
 ]
 
+def predict(li):
+    input_data = np.array(li,dtype=object)
+        
+    input_data = scaler.transform([input_data])
+
+    prediction = loaded_model.predict(input_data)
+
+    print("Prediction:", prediction[0])
+
+    return prediction[0]
+
 @app.route('/',methods=['GET','POST'])
 def form():
     if request.method == 'POST':
@@ -99,23 +112,23 @@ def form():
 
         married = request.form.get('married')
         print("Marital Status:", married)
-        
-        input_data = np.array(
-            answers + tipi_answers + [education, urban, gender, age_group, religion, orientation, race, married],
-            dtype=object)
-        
-        input_data = scaler.transform([input_data])
 
-        prediction = loaded_model.predict(input_data)
-
-        print("Prediction:", prediction[0])
+        li = answers + tipi_answers + [education, urban, gender, age_group, religion, orientation, race, married]
         
-        return render_template("result.html", result=prediction[0])
+        result = predict(li)
+        
+        return render_template("result.html", result=result)
     return render_template('form.html', questions=questions, tipi_questions=tipi_questions)
 
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+@app.route("/predict/<string:id>")
+def check(id):
+    li = [int(x) for x in id.split(",")]
+    return jsonify({"id": predict(li)})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
