@@ -14,7 +14,8 @@ questions = [
     "I found myself getting upset by quite trivial things.",
     "I was aware of dryness of my mouth.",
     "I couldn't seem to experience any positive feeling at all.",
-    "I experienced breathing difficulty (eg, excessively rapid breathing, breathlessness in the absence of physical exertion).",
+    "I experienced breathing difficulty (eg, excessively rapid breathing, breathlessness in the absence of physical "
+    "exertion).",
     "I just couldn't seem to get going.",
     "I tended to over-react to situations.",
     "I had a feeling of shakiness (eg, legs going to give way).",
@@ -24,7 +25,8 @@ questions = [
     "I found myself getting upset rather easily.",
     "I felt that I was using a lot of nervous energy.",
     "I felt sad and depressed.",
-    "I found myself getting impatient when I was delayed in any way (eg, elevators, traffic lights, being kept waiting).",
+    "I found myself getting impatient when I was delayed in any way (eg, elevators, traffic lights, being kept "
+    "waiting).",
     "I had a feeling of faintness.",
     "I felt that I had lost interest in just about everything.",
     "I felt I wasn't worth much as a person.",
@@ -35,7 +37,8 @@ questions = [
     "I found it hard to wind down.",
     "I had difficulty in swallowing.",
     "I couldn't seem to get any enjoyment out of the things I did.",
-    "I was aware of the action of my heart in the absence of physical exertion (eg, sense of heart rate increase, heart missing a beat).",
+    "I was aware of the action of my heart in the absence of physical exertion (eg, sense of heart rate increase, "
+    "heart missing a beat).",
     "I felt down-hearted and blue.",
     "I found that I was very irritable.",
     "I felt I was close to panic.",
@@ -68,9 +71,10 @@ tipi_questions = [
     "Conventional, uncreative."
 ]
 
+
 def predict(li):
-    input_data = np.array(li,dtype=object)
-        
+    input_data = np.array(li, dtype=object)
+
     input_data = scaler.transform([input_data])
 
     prediction = loaded_model.predict(input_data)
@@ -79,10 +83,11 @@ def predict(li):
 
     return prediction[0]
 
-@app.route('/',methods=['GET','POST'])
+
+@app.route('/', methods=['GET', 'POST'])
 def form():
     if request.method == 'POST':
-        print("Request Recieved")
+        print("Request Received")
         answers = [request.form.get(f'q{i}') for i in range(1, 43)]
         print("Answers:", answers)
 
@@ -114,20 +119,22 @@ def form():
         print("Marital Status:", married)
 
         li = answers + tipi_answers + [education, urban, gender, age_group, religion, orientation, race, married]
-        
+
         result = predict(li)
-        
+
         return render_template("result.html", result=result)
     return render_template('form.html', questions=questions, tipi_questions=tipi_questions)
+
 
 @app.route("/about")
 def about():
     return render_template("about.html")
 
-@app.route("/predict/<string:id>", methods=['GET', 'POST'])
-def check(id):
+
+@app.route("/predict/<string:content>", methods=['GET', 'POST'])
+def check(content):
     if request.method == 'POST' or request.method == 'GET':
-        li = [int(x) for x in id.split(",")]
+        li = [int(x) for x in content.split(",")]
         return jsonify({"id": predict(li)})
 
 

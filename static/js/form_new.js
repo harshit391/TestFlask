@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener("keydown", (event) => {
         let buttons = questions[currentQuestion].querySelectorAll('input[type="radio"]');
-        if (event.key=="Enter" && currentQuestion == totalQuestions-1) {
+        if (event.key==="Enter" && currentQuestion === totalQuestions-1) {
             if (validateCurrentQuestion()) {
                 fillBtn.textContent = "";
                 myForm.submit();
@@ -90,14 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('keydown', function(event) {
 
-        if (event.key === 'Enter' || event.keyCode === 13) {
+        if (event.key === 'Enter') {
             event.preventDefault();
             if (submitButton.style.display === 'block') {
                 handleSubmit();
             } else {
                 handleNext();
             }
-        } else if (event.key === 'Backspace' || event.keyCode === 8) {
+        } else if (event.key === 'Backspace') {
             event.preventDefault();
             handlePrev();
         }
